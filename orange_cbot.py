@@ -1,3 +1,9 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load variables from .env
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
 import random
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
@@ -77,7 +83,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Welcome to the Orange Catholic Bible bot! Use /ocb to get a random Dune quote.")
 
 if __name__ == "__main__":
-    application = ApplicationBuilder().token("7903042103:AAGPLU6N3VlQZqrtjGfKcvPTuHqdVMYnYJU").build()
+    application = ApplicationBuilder().token("7903042103:AAG0xLS5D-EeuM7d30lc_ZNgzPGxb_AxpLA").build()
 
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("ocb", ocb))
